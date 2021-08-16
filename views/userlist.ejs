@@ -1,0 +1,70 @@
+<html>
+
+<head>
+    <title>
+        User Menu
+    </title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        table,
+        td,
+        th {
+            border: 3px solid black;
+        }
+        h1 {
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            color: aqua;
+        }
+    </style>
+
+</head>
+<h1>User Details</h1>
+<form>
+    <table align="center">
+        <tr>
+            <th>
+                Sr.No.
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Age
+            </th>
+            <th>
+                Update
+            </th>
+            <th>
+                Delete
+            </th>
+        </tr>
+
+        <% if(data.length!=0){ var i=1; data.forEach(function(data){ %>
+            <tr>
+                <td>
+                    <%=i; %>
+                </td>
+                <td>
+                    <%=data.name %>
+                </td>
+                <td>
+                    <%=data.age %>
+                </td>
+                <td><a href="/updateUser/<%=data.name%>">Edit</a></td>
+                <td><a href="/delete/<%=data.name%>">Delete</a></td>
+            </tr>
+            <% i++; }) %>
+                <% } else{ %>
+                    <tr>
+                        <td colspan="7">No Data Found</td>
+                    </tr>
+                    <% } %>
+                </table>
+                 <button><a href="addUser">Add User</a></button>
+    
+
+</html>
